@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Metadatos -->
+    <!-- ════ METADATOS (Para que se vea bien al compartir) ════ -->
     <title>TecnoPlus — Belleza & Tecnología</title>
     <meta property="og:title" content="TecnoPlus — Belleza & Tecnología">
     <meta property="og:description" content="Tienda verificada: Uñas, Instrumentación y Salud Digital.">
     <meta property="og:image" content="https://i.ibb.co/PvDtLjj3/tecnopluscol-1507316575-Infra-Nighclub-Photo-Room.png">
+    <meta property="og:type" content="website">
     <meta name="theme-color" content="#050208">
     
-    <!-- Deep Linking -->
+    <!-- Deep Linking Universal -->
     <meta property="al:instagram:url" content="instagram://user?username=tecnoplus_col">
     <meta property="al:android:url" content="instagram://user?username=tecnoplus_col">
     <meta property="al:ios:url" content="instagram://user?username=tecnoplus_col">
@@ -21,14 +22,34 @@
     
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
         :root {
-            --bg-void: #050208; --purple-600: #7c3aed; --cyan-400: #22d3ee; --emerald-500: #10b981; --white: #ffffff;
-            --w95: rgba(255,255,255,.95); --w60: rgba(255,255,255,.6); --w40: rgba(255,255,255,.4);
-            --w12: rgba(255,255,255,.12); --glass-1: rgba(255,255,255,.06);
+            /* Paleta Premium */
+            --bg-void: #050208;
+            --purple-600: #7c3aed;
+            --cyan-400: #22d3ee;
+            --pink-500: #ec4899;
+            --emerald-500: #10b981;
+            --emerald-400: #34d399;
+            --white: #ffffff;
+            --w95: rgba(255,255,255,.95);
+            --w60: rgba(255,255,255,.6);
+            --w40: rgba(255,255,255,.4);
+            --w12: rgba(255,255,255,.12);
+            --w05: rgba(255,255,255,.05);
+            --w03: rgba(255,255,255,.03);
+            --glass-1: rgba(255,255,255,.06);
+            --glass-border: rgba(255,255,255,.1);
         }
+
         html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
         body{font-family:'Inter',system-ui,sans-serif;min-height:100vh;background:var(--bg-void);color:var(--white);overflow-x:hidden}
-        
+        ::selection{background:rgba(139,92,246,.4);color:#fff}
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:transparent}
+        ::-webkit-scrollbar-thumb{background:var(--w12);border-radius:10px}
+
+        /* ══ FONDO UNIVERSO ══ */
         .universe{position:fixed;inset:0;z-index:0;overflow:hidden}
         .hero-base{position:absolute;inset:0}
         .hero-base img{width:100%;height:100%;object-fit:cover;filter:brightness(.25) saturate(1.2);transform:scale(1.1);animation:heroBreath 25s ease-in-out infinite alternate}
@@ -43,12 +64,14 @@
         .stars{position:absolute;inset:0}
         .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle ease-in-out infinite}
         @keyframes twinkle{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
-        .perspective-grid{position:absolute;inset:0;background-image:linear-gradient(var(--w12) 1px,transparent 1px),linear-gradient(90deg,var(--w12) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 50% 40% at 50% 60%,black,transparent);transform:perspective(500px) rotateX(60deg);transform-origin:center bottom;opacity:.4}
+        .perspective-grid{position:absolute;inset:0;background-image:linear-gradient(var(--w03) 1px,transparent 1px),linear-gradient(90deg,var(--w03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 50% 40% at 50% 60%,black,transparent);transform:perspective(500px) rotateX(60deg);transform-origin:center bottom;opacity:.4}
         .cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(139,92,246,.08),transparent 60%);transform:translate(-50%,-50%);transition:left .3s ease,top .3s ease,opacity .3s;opacity:0}
         .noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px}
 
+        /* ══ PAGE STRUCTURE ══ */
         .page{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}
         
+        /* Glass Card */
         .glass-card{position:relative;width:100%;max-width:440px;border-radius:32px;overflow:visible;animation:cardReveal 1s cubic-bezier(.16,1,.3,1) .3s both}
         @keyframes cardReveal{from{opacity:0;transform:translateY(50px) scale(.92);filter:blur(10px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
         
@@ -60,14 +83,23 @@
         .light-beam{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(139,92,246,.03) 60deg,transparent 120deg,rgba(59,130,246,.03) 200deg,transparent 260deg,rgba(34,211,238,.02) 320deg,transparent 360deg);animation:beamSpin 20s linear infinite;pointer-events:none}
         @keyframes beamSpin{to{transform:rotate(360deg)}}
 
+        /* Badge Verificado */
         .premium-badge{display:flex;justify-content:center;margin-bottom:28px;animation:slideDown .6s ease .6s both}
         @keyframes slideDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-        .badge-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(52,211,153,.1));border:1px solid rgba(52,211,153,.4);border-radius:100px;font-size:11px;font-weight:700;color:var(--emerald-500);letter-spacing:1.2px;text-transform:uppercase;position:relative;overflow:hidden;box-shadow: 0 0 15px rgba(16,185,129,.15)}
+        .badge-pill{
+            display:inline-flex;align-items:center;gap:6px;padding:6px 16px;
+            background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(52,211,153,.1));
+            border:1px solid rgba(52,211,153,.4);border-radius:100px;
+            font-size:11px;font-weight:700;color:var(--emerald-400);
+            letter-spacing:1.2px;text-transform:uppercase;position:relative;overflow:hidden;
+            box-shadow: 0 0 15px rgba(16,185,129,.15);
+        }
         .badge-pill::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(52,211,153,.2),transparent);animation:badgeShine 3s ease-in-out infinite}
         @keyframes badgeShine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
         .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--emerald-500);animation:dotPulse 2s ease-in-out infinite; box-shadow: 0 0 8px var(--emerald-500);}
         @keyframes dotPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{opacity:.8;box-shadow:0 0 0 6px transparent}}
 
+        /* Avatar */
         .avatar-zone{display:flex;flex-direction:column;align-items:center;margin-bottom:24px;animation:fadeUp .7s ease .5s both}
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
         .avatar-container{position:relative;width:120px;height:120px;margin-bottom:20px}
@@ -78,33 +110,57 @@
         .online-indicator{position:absolute;bottom:6px;right:6px;width:24px;height:24px;background:var(--emerald-500);border:3px solid var(--bg-void);border-radius:50%;z-index:3;box-shadow:0 0 12px rgba(16,185,129,.5);animation:onlinePulse 2s ease-in-out infinite}
         @keyframes onlinePulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4),0 0 12px rgba(16,185,129,.5)}50%{box-shadow:0 0 0 8px transparent,0 0 20px rgba(16,185,129,.3)}}
 
+        /* Typography */
         .identity{text-align:center}
-        .creator-name{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;background:linear-gradient(135deg,#fff 0%,var(--purple-600) 50%,var(--cyan-400) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+        .creator-name{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;background:linear-gradient(135deg,#fff 0%,var(--purple-300) 50%,var(--cyan-300) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
         .creator-handle{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--purple-400);letter-spacing:.5px}
         .bio{text-align:center;font-size:14px;line-height:1.7;color:var(--w60);margin:16px auto 28px;max-width:340px}
         .bio strong{color:var(--w95);font-weight:600}
 
+        /* Stats */
         .stats-crystal{display:flex;align-items:center;justify-content:center;margin-bottom:32px;background:var(--glass-1);border:1px solid var(--glass-border);border-radius:20px;padding:4px;animation:fadeUp .7s ease .7s both}
         .stat{flex:1;text-align:center;padding:14px 8px;position:relative}
         .stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:linear-gradient(180deg,transparent,var(--w12),transparent)}
         .stat-val{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--w95)}
         .stat-lbl{font-size:10px;color:var(--w40);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:4px}
 
+        /* ══ BOTONES MEJORADOS ══ */
         .cta-zone{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;animation:fadeUp .7s ease .75s both}
-        .btn-integrated {display: flex; align-items: stretch; border-radius: 18px; overflow: hidden; position: relative; transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2)}
+
+        .btn-integrated {
+            display: flex; align-items: stretch; border-radius: 18px; overflow: hidden; position: relative;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
         .btn-integrated:active {transform:scale(0.98)}
         .btn-integrated:hover {transform: translateY(-2px)}
+
+        /* Temas */
         .btn-ig-theme {background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)}
         .btn-wa-theme {background: linear-gradient(135deg, #25D366 0%, #128C7E 100%)}
         .btn-tg-theme {background: linear-gradient(135deg, #0088cc 0%, #00aaff 100%)}
-        .btn-link-main {flex-grow: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 0 16px 16px; text-decoration: none; color: #fff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700}
+
+        /* Link Principal */
+        .btn-link-main {
+            flex-grow: 1; display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 16px 0 16px 16px; text-decoration: none; color: #fff;
+            font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+        }
         .btn-link-main svg { width: 22px; height: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        .btn-copy-integrated {width: 44px; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.1); border: none; border-left: 1px solid rgba(255, 255, 255, 0.15); cursor: pointer; color: rgba(255, 255, 255, 0.9); padding: 0; z-index: 2}
+
+        /* Botón Copiar */
+        .btn-copy-integrated {
+            width: 44px; display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.1); border: none; border-left: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer; color: rgba(255, 255, 255, 0.9); padding: 0; z-index: 2;
+        }
         .btn-copy-integrated:hover {background: rgba(0, 0, 0, 0.2); color: #fff}
         .btn-copy-integrated svg { width: 18px; height: 18px; opacity: 0.9; }
+        
         .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.2);transform:scale(0);animation:ripple .5s ease-out forwards;pointer-events:none}
         @keyframes ripple{to{transform:scale(3);opacity:0}}
 
+        /* Benefits & QR */
         .qr-zone{display:flex;flex-direction:column;align-items:center;margin-bottom:32px;animation:fadeUp .7s ease .8s both}
         .section-divider{display:flex;align-items:center;gap:12px;margin-bottom:16px;width:100%}
         .section-divider span{font-size:10px;font-weight:700;color:var(--w40);text-transform:uppercase;letter-spacing:2px}
@@ -180,11 +236,11 @@
                     <div class="stat"><div class="stat-val">809</div><div class="stat-lbl">Seguidos</div></div>
                 </div>
 
-                <!-- ════ CTA ZONE ════ -->
+                <!-- ════ CTA ZONE CORREGIDA ════ -->
                 <div class="cta-zone">
                     
-                    <!-- INSTAGRAM (Forzado) -->
-                    <div class="btn-integrated btn-ig-theme" onclick="openDeepLink('instagram://user?username=tecnoplus_col', 'https://www.instagram.com/tecnoplus_col/')">
+                    <!-- INSTAGRAM -->
+                    <div class="btn-integrated btn-ig-theme" onclick="forceOpen('https://www.instagram.com/tecnoplus_col/')">
                         <div class="btn-link-main">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                             Instagram
@@ -194,8 +250,8 @@
                         </button>
                     </div>
 
-                    <!-- WHATSAPP (Forzado) -->
-                    <div class="btn-integrated btn-wa-theme" onclick="openDeepLink('whatsapp://send?phone=573013642795', 'https://api.whatsapp.com/send?phone=573013642795')">
+                    <!-- WHATSAPP -->
+                    <div class="btn-integrated btn-wa-theme" onclick="forceOpen('https://api.whatsapp.com/send?phone=573013642795')">
                         <div class="btn-link-main">
                             <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                             WhatsApp
@@ -205,10 +261,10 @@
                         </button>
                     </div>
 
-                    <!-- TELEGRAM (Forzado con t.me para bypass) -->
-                    <div class="btn-integrated btn-tg-theme" onclick="openDeepLink('tg://resolve?domain=Telegram', 'https://t.me/Telegram')">
+                    <!-- TELEGRAM (Forzado) -->
+                    <div class="btn-integrated btn-tg-theme" onclick="forceOpen('https://t.me/Telegram')">
                         <div class="btn-link-main">
-                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                             Telegram
                         </div>
                         <button class="btn-copy-integrated" onclick="copyLink(event, 'https://t.me/Telegram', this)">
@@ -263,25 +319,16 @@ window.addEventListener('load',()=>setTimeout(()=>document.getElementById('prelo
 
 if(window.innerWidth>900){const g=document.getElementById('cursorGlow');let mx=0,my=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;g?g.style.opacity='1':0});document.addEventListener('mouseleave',()=>g?g.style.opacity='0':0);if(g)(function loop(){g.style.left=mx+'px';g.style.top=my+'px';requestAnimationFrame(loop)})();const card=document.getElementById('card');const inner=card.querySelector('.glass-inner');card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(1200px) rotateY(${x*6}deg) rotateX(${-y*6}deg) scale(1.02)`;inner.style.backgroundImage=`radial-gradient(circle at ${(x+.5)*100}% ${(y+.5)*100}%,rgba(139,92,246,.06),transparent 50%)`});card.addEventListener('mouseleave',()=>{card.style.transition='transform .6s cubic-bezier(.4,0,.2,1)';card.style.transform='perspective(1200px) rotateY(0) rotateX(0) scale(1)';inner.style.backgroundImage='none';setTimeout(()=>card.style.transition='',600)});const qr=document.getElementById('qrBox');qr.addEventListener('mousemove',e=>{const r=qr.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;qr.style.transform=`perspective(600px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale(1.06)`});qr.addEventListener('mouseleave',()=>{qr.style.transition='transform .4s ease';qr.style.transform='perspective(600px) rotateY(0) rotateX(0) scale(1)';setTimeout(()=>qr.style.transition='',400)});const avt=document.getElementById('avatarContainer');avt.addEventListener('mousemove',e=>{const r=avt.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;avt.style.transform=`perspective(500px) rotateY(${x*15}deg) rotateX(${-y*15}deg)`});avt.addEventListener('mouseleave',()=>{avt.style.transition='transform .4s ease';avt.style.transform='perspective(500px) rotateY(0) rotateX(0)';setTimeout(()=>avt.style.transition='',400)})}
 
-// ══ Deep Link Fix para TikTok ══
-function openDeepLink(appUrl, webUrl) {
-    // Intentar abrir la app
-    window.location.href = appUrl;
-    
-    // Si la app no abre en 0.5s, usar el enlace web universal que TikTok respeta más
-    setTimeout(function() {
-        // Truco: Abrir en una ventana nueva fuerza al OS a manejar el enlace
-        window.open(webUrl, '_blank'); 
-    }, 500);
+// ══ FUNCION BYPASS TIKTOK BROWSER (Actualizada) ══
+function forceOpen(url) {
+    // Intenta abrir en una pestaña nueva (Lo que fuerza al OS a tomar el control)
+    window.open(url, '_blank');
 }
 
-// ══ Lógica de Copiado Segura ══
+// ══ LOGICA COPIAR ══
 async function copyLink(event, link, btn) {
-    event.stopPropagation(); // Detiene el clic del botón grande
-    event.preventDefault(); // Detiene comportamiento por defecto
-    
+    event.stopPropagation();
     try { await navigator.clipboard.writeText(link); } catch {
-        // Fallback para móviles antiguos
         const t=document.createElement('textarea');t.value=link;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
     }
     const originalContent = btn.innerHTML;
@@ -300,7 +347,6 @@ function showToast(m){const t=document.getElementById('toast');document.getEleme
 
 document.querySelectorAll('.btn-integrated').forEach(b=>{
     b.addEventListener('click', function(e) {
-        // Efecto Ripple solo si NO es el botón de copiar
         if (!e.target.closest('.btn-copy-integrated')) {
             const r=this.getBoundingClientRect();const d=Math.max(r.width,r.height);const rp=document.createElement('span');rp.className='ripple';rp.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;this.appendChild(rp);setTimeout(()=>rp.remove(),600)
         }
@@ -312,4 +358,3 @@ if(window.innerWidth>480){const cards=document.querySelectorAll('.benefit-card')
 
 </body>
 </html>
-
